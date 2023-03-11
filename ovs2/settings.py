@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-0%vq3unfbs!5k0qe5sr_@!my4n#8%ak5&avy)^345j^doy9--+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'polls',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'ovs2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,7 +116,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+# django_project/settings.py
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "static"] # new
+
+STATIC_ROOT = (BASE_DIR /'all')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
